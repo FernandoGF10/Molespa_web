@@ -93,4 +93,20 @@
     background: linear-gradient(90deg, transparent, hsl(200 80% 50% / 0.3), transparent);
     height: 1px;
   }
+
+  .glass-panel {
+    @apply rounded-2xl border border-white/35 bg-white/75 shadow-[0_22px_70px_hsl(215_35%_12%/0.12)] backdrop-blur-2xl;
+  }
+
+  .glass-panel-dark {
+    @apply rounded-2xl border border-white/15 bg-hero-dark/60 shadow-[0_22px_70px_hsl(215_35%_8%/0.24)] backdrop-blur-2xl;
+  }
+
+  .glass-icon {
+    @apply rounded-xl border border-accent/20 bg-accent/10 shadow-[inset_0_1px_0_hsl(0_0%_100%/0.35)] backdrop-blur-xl;
+  }
+
+  .glass-button {
+    @apply rounded-full border border-white/25 bg-white/10 shadow-[inset_0_1px_0_hsl(0_0%_100%/0.25),0_14px_34px_hsl(215_35%_8%/0.16)] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:bg-white/20;
+  }
 }

@@ -185,12 +185,12 @@ export default function Index() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.15 }}
                                 transition={{ duration: 0.6, delay: index * 0.12 }}
-                                className={`rounded-lg overflow-hidden group ${img.className}`}
+                                className={`glass-panel overflow-hidden group p-1 ${img.className}`}
                             >
                                 <img
                                     src={img.src}
                                     alt={img.alt}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    className="w-full h-full rounded-[0.85rem] object-cover group-hover:scale-105 transition-transform duration-500"
                                     loading="lazy"
                                 />
                             </motion.div>

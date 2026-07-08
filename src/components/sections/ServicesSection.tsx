@@ -135,10 +135,10 @@ export default function ServicesSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.15 }}
                             transition={{ duration: 0.65, delay: index * 0.08 }}
-                            className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-8 hover:border-accent/30 hover:-translate-y-1 transition duration-300"
+                            className="glass-panel p-8 hover:border-accent/30 hover:-translate-y-1 transition duration-300"
                         >
                             <div className="flex items-center gap-4 mb-4">
-                                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                                <div className="glass-icon w-12 h-12 flex items-center justify-center shrink-0">
                                     <s.icon className="text-accent" size={24} />
                                 </div>
                                 <h3 className="font-heading font-bold text-xl text-foreground">
@@ -167,6 +167,7 @@ export default function ServicesSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.15 }}
                             transition={{ duration: 0.7 }}
+                            className="glass-panel-dark p-8"
                         >
                             <div className="flex items-center gap-3 mb-6">
                                 <Users className="text-accent" size={24} />
@@ -196,6 +197,7 @@ export default function ServicesSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.15 }}
                             transition={{ duration: 0.7, delay: 0.15 }}
+                            className="glass-panel-dark p-8"
                         >
                             <div className="flex items-center gap-3 mb-6">
                                 <Briefcase className="text-accent" size={24} />

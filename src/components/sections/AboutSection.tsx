@@ -40,7 +40,7 @@ export default function AboutSection() {
                     aria-hidden="true"
                 />
 
-                <div className="relative z-10 container mx-auto px-4 max-w-4xl">
+                <div className="relative z-10 container mx-auto px-4 max-w-4xl space-y-8">
                     {[
                         {
                             icon: Building2,
@@ -64,9 +64,9 @@ export default function AboutSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="flex items-start gap-6"
+                                className="glass-panel flex items-start gap-6 p-7 hover:-translate-y-1 hover:border-accent/30 transition duration-300"
                             >
-                                <div className="w-14 h-14 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                                <div className="glass-icon w-14 h-14 flex items-center justify-center shrink-0">
                                     <block.icon className="text-accent" size={28} />
                                 </div>
                                 <div>
@@ -76,7 +76,7 @@ export default function AboutSection() {
                                     <p className="text-muted-foreground leading-relaxed">{block.text}</p>
                                 </div>
                             </motion.div>
-                            {index < 2 && <div className="section-divider my-12" />}
+                            {index < 2 && <div className="section-divider mt-8" />}
                         </div>
                     ))}
                 </div>
@@ -103,9 +103,9 @@ export default function AboutSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7, delay: index * 0.15 }}
                                 viewport={{ once: true }}
-                                className="bg-hero-dark/50 border border-hero-foreground/10 rounded-lg p-8 hover:-translate-y-1 transition duration-300"
+                                className="glass-panel-dark p-8 hover:-translate-y-1 hover:border-accent/30 transition duration-300"
                             >
-                                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-5">
+                                <div className="glass-icon w-12 h-12 flex items-center justify-center mb-5">
                                     <item.icon className="text-accent" size={24} />
                                 </div>
                                 <h3 className="font-heading font-bold text-xl text-hero-foreground mb-4">

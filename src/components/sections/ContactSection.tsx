@@ -68,9 +68,9 @@ export default function ContactSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.2 }}
                                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                                className="bg-card/90 backdrop-blur-sm border border-border rounded-lg p-8 text-center hover:border-accent/30 hover:-translate-y-1 transition duration-300"
+                                className="glass-panel p-8 text-center hover:border-accent/30 hover:-translate-y-1 transition duration-300"
                             >
-                                <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-5">
+                                <div className="glass-icon w-14 h-14 flex items-center justify-center mx-auto mb-5 rounded-full">
                                     <c.icon className="text-accent" size={24} />
                                 </div>
                                 <h3 className="font-heading font-bold text-lg text-foreground mb-3">
@@ -90,7 +90,7 @@ export default function ContactSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
-                        className="mt-16 relative rounded-lg overflow-hidden"
+                        className="glass-panel-dark mt-16 relative overflow-hidden"
                     >
                         <motion.img
                             src={contactObra}
@@ -127,13 +127,13 @@ export default function ContactSection() {
                             >
                                 <a
                                     href="tel:+56982291920"
-                                    className="px-6 py-3 rounded-full border border-white/20 bg-accent/88 text-accent-foreground font-heading font-semibold text-sm shadow-[inset_0_1px_0_hsl(0_0%_100%/0.35),0_12px_30px_hsl(200_80%_30%/0.25)] backdrop-blur-xl hover:brightness-110 hover:-translate-y-0.5 transition duration-300"
+                                    className="px-6 py-3 rounded-full border border-accent bg-accent text-accent-foreground font-heading font-semibold text-sm shadow-[0_12px_30px_hsl(200_80%_30%/0.25)] hover:brightness-110 hover:-translate-y-0.5 transition duration-300"
                                 >
                                     Llamar ahora
                                 </a>
                                 <a
                                     href="mailto:contacto@molespa.cl"
-                                    className="px-6 py-3 rounded-full border border-white/24 bg-white/8 text-hero-foreground font-heading font-semibold text-sm shadow-[inset_0_1px_0_hsl(0_0%_100%/0.25)] backdrop-blur-xl hover:bg-white/14 hover:-translate-y-0.5 transition duration-300"
+                                    className="glass-button px-6 py-3 text-hero-foreground font-heading font-semibold text-sm"
                                 >
                                     Enviar correo
                                 </a>
