@@ -1,7 +1,7 @@
 import { MapPin, Phone, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import fondoMole from "@/assets/fondos/fondo-mole.jpeg";
-import obras1 from "@/assets/obras/obras-1.jpeg";
+import contactObra from "@/assets/obras/Obras (20).jpeg";
 
 const CONTACT_INFO = [
     {
@@ -93,7 +93,7 @@ export default function ContactSection() {
                         className="mt-16 relative rounded-lg overflow-hidden"
                     >
                         <motion.img
-                            src={obras1}
+                            src={contactObra}
                             alt="Trabajo industrial Mole"
                             initial={{ scale: 1.05 }}
                             whileInView={{ scale: 1 }}

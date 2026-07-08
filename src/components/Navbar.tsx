@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import logo from "@/assets/logos/LogoMole_claro.png";
+import logo from "@/assets/logos/LogoMole_oscuro.png";
 
 const NAV_ITEMS = [
   { label: "Inicio", href: "/#inicio", hash: "#inicio" },
@@ -19,8 +19,8 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-hero/95 border-b border-hero-dark/50 backdrop-blur-lg">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        <Link to="/#inicio" className="flex items-center">
-          <img src={logo} alt="Mole SPA" className="h-10" />
+        <Link to="/#inicio" className="flex h-11 w-28 items-center overflow-hidden rounded-sm">
+          <img src={logo} alt="Mole SPA" className="h-full w-full object-cover object-center" />
         </Link>
         <div className="hidden md:flex gap-1">
           {NAV_ITEMS.map((item) => (
