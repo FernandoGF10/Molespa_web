@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail } from "lucide-react";
-import logo from "@/assets/logos/LogoMole_oscuro.png";
+import logo from "@/assets/logos/logo_transparente.png";
 
 export default function Footer() {
   return (
@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
-            <div className="mb-4 h-14 w-36 overflow-hidden rounded-sm">
-              <img src={logo} alt="Mole SPA" className="h-full w-full object-cover object-center" />
+            <div className="mb-4 h-16 w-44">
+              <img src={logo} alt="Mole SPA" className="h-full w-full object-contain object-left" />
             </div>
             <p className="text-hero-foreground/60 text-sm leading-relaxed">
               Servicios de Mantenimiento, Fabricación y Montaje Industrial

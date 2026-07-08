@@ -61,7 +61,7 @@ export default function Index() {
 
     return (
         <Layout>
-            <section id="inicio" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden scroll-mt-16 bg-hero">
+            <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-16 bg-hero">
                 <AnimatePresence mode="wait">
                     <motion.img
                         key={currentSlide.src}
@@ -75,11 +75,11 @@ export default function Index() {
                     />
                 </AnimatePresence>
 
-                <div className="absolute inset-0 bg-hero/80" />
+                <div className="absolute inset-0 hero-overlay" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(200_80%_50%/0.16),transparent_42%)]" />
                 <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-hero-dark to-transparent" />
 
-                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
                     <motion.p
                         initial={{ opacity: 0, y: 24 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -117,14 +117,14 @@ export default function Index() {
                     >
                         <Link
                             to="/#contacto"
-                            className="px-8 py-3.5 rounded-md bg-accent text-accent-foreground font-heading font-bold text-base hover:brightness-110 hover:-translate-y-0.5 transition duration-300"
+                            className="rounded-full border border-white/20 bg-accent/88 px-8 py-3.5 text-base font-heading font-bold text-accent-foreground shadow-[inset_0_1px_0_hsl(0_0%_100%/0.35),0_14px_34px_hsl(200_80%_30%/0.25)] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:brightness-110"
                         >
                             ¡Contáctanos!
                         </Link>
 
                         <Link
                             to="/#servicios"
-                            className="px-8 py-3.5 rounded-md border border-hero-foreground/20 text-hero-foreground font-heading font-semibold text-base hover:bg-hero-foreground/10 hover:-translate-y-0.5 transition duration-300"
+                            className="rounded-full border border-white/24 bg-white/8 px-8 py-3.5 text-base font-heading font-semibold text-hero-foreground shadow-[inset_0_1px_0_hsl(0_0%_100%/0.25)] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:bg-white/14"
                         >
                             Nuestros Servicios
                         </Link>
@@ -150,7 +150,7 @@ export default function Index() {
                     initial={{ opacity: 0, y: -8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.1, duration: 0.8 }}
-                    className="absolute bottom-8 left-1/2 -translate-x-1/2 text-hero-foreground/50 animate-bounce"
+                    className="absolute bottom-10 left-1/2 -translate-x-1/2 text-hero-foreground/50 animate-bounce"
                 >
                     <ChevronDown size={32} />
                 </motion.a>

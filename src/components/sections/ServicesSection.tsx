@@ -185,7 +185,7 @@ export default function ServicesSection() {
                                         className="flex items-center gap-3"
                                     >
                                         <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
-                                        <span className="text-hero-foreground/70">{t}</span>
+                                        <span className="text-hero-foreground/68">{t}</span>
                                     </motion.li>
                                 ))}
                             </ul>

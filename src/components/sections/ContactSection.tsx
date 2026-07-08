@@ -127,13 +127,13 @@ export default function ContactSection() {
                             >
                                 <a
                                     href="tel:+56982291920"
-                                    className="px-6 py-3 rounded-md bg-accent text-accent-foreground font-heading font-semibold text-sm hover:brightness-110 hover:-translate-y-0.5 transition duration-300"
+                                    className="px-6 py-3 rounded-full border border-white/20 bg-accent/88 text-accent-foreground font-heading font-semibold text-sm shadow-[inset_0_1px_0_hsl(0_0%_100%/0.35),0_12px_30px_hsl(200_80%_30%/0.25)] backdrop-blur-xl hover:brightness-110 hover:-translate-y-0.5 transition duration-300"
                                 >
                                     Llamar ahora
                                 </a>
                                 <a
                                     href="mailto:contacto@molespa.cl"
-                                    className="px-6 py-3 rounded-md border border-hero-foreground/20 text-hero-foreground font-heading font-semibold text-sm hover:bg-hero-foreground/10 hover:-translate-y-0.5 transition duration-300"
+                                    className="px-6 py-3 rounded-full border border-white/24 bg-white/8 text-hero-foreground font-heading font-semibold text-sm shadow-[inset_0_1px_0_hsl(0_0%_100%/0.25)] backdrop-blur-xl hover:bg-white/14 hover:-translate-y-0.5 transition duration-300"
                                 >
                                     Enviar correo
                                 </a>
