@@ -5,15 +5,12 @@ import Layout from "@/components/Layout";
 import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ContactSection from "@/components/sections/ContactSection";
-import obras1 from "@/assets/obras-1.jpeg";
-import obras2 from "@/assets/obras-2.jpeg";
-import obras3 from "@/assets/obras-3.jpeg";
-import obras4 from "@/assets/obras-4.jpeg";
+import obras1 from "@/assets/obras/obras-1.jpeg";
 
 const GALLERY = [
-    { src: obras2, alt: "Montaje de piping industrial" },
-    { src: obras3, alt: "Equipo en obra de cañerías" },
-    { src: obras4, alt: "Instalación de red contra incendio" },
+    { src: obras1, alt: "Montaje de piping industrial" },
+    { src: obras1, alt: "Equipo en obra de cañerías" },
+    { src: obras1, alt: "Instalación de red contra incendio" },
 ];
 
 export default function Index() {

@@ -1,6 +1,6 @@
 import { Building2, Handshake, Users, Target, Eye } from "lucide-react";
 import { motion } from "framer-motion";
-import fondoMole from "@/assets/fondo-mole.jpeg";
+import fondoMole from "@/assets/fondos/fondo-mole.jpeg";
 
 export default function AboutSection() {
     return (
