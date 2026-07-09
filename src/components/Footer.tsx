@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
-            <div className="mb-4 h-16 w-44">
-              <img src={logo} alt="Mole SPA" className="h-full w-full object-contain object-left" />
+            <div className="mb-4 h-20 w-56">
+              <img src={logo} alt="Mole SPA" className="h-full w-full object-contain object-left contrast-125 saturate-125" />
             </div>
             <p className="text-hero-foreground/60 text-sm leading-relaxed">
               Servicios de Mantenimiento, Fabricación y Montaje Industrial

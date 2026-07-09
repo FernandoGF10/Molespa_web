@@ -21,6 +21,11 @@ const CONTACT_INFO = [
     },
 ];
 
+const MAP_URL =
+    "https://www.google.com/maps?q=Calle%20San%20Mart%C3%ADn%20553%2C%20Concepci%C3%B3n%2C%20Chile&output=embed";
+const MAP_LINK =
+    "https://www.google.com/maps/search/?api=1&query=Calle%20San%20Mart%C3%ADn%20553%2C%20Concepci%C3%B3n%2C%20Chile";
+
 export default function ContactSection() {
     return (
         <section id="contacto" className="scroll-mt-16">
@@ -138,6 +143,46 @@ export default function ContactSection() {
                                     Enviar correo
                                 </a>
                             </motion.div>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true }}
+                        className="glass-panel mt-10 overflow-hidden p-4 md:p-5"
+                    >
+                        <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                            <div>
+                                <p className="text-accent font-heading font-semibold text-xs tracking-widest uppercase mb-1">
+                                    Ubicación
+                                </p>
+                                <h3 className="font-heading font-bold text-2xl text-foreground">
+                                    Visítanos en Concepción
+                                </h3>
+                                <p className="text-muted-foreground text-sm">
+                                    Calle San Martín 553, Segundo Piso - Concepción - Chile
+                                </p>
+                            </div>
+                            <a
+                                href={MAP_LINK}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex justify-center rounded-full bg-accent px-5 py-3 text-sm font-heading font-semibold text-accent-foreground shadow-[0_12px_30px_hsl(200_80%_30%/0.22)] transition hover:-translate-y-0.5 hover:brightness-110"
+                            >
+                                Abrir en Google Maps
+                            </a>
+                        </div>
+                        <div className="overflow-hidden rounded-2xl border border-white/45 shadow-[0_18px_50px_hsl(215_35%_12%/0.16)]">
+                            <iframe
+                                title="Ubicación de MOLE SPA en Concepción"
+                                src={MAP_URL}
+                                className="h-[340px] w-full border-0 grayscale-[18%] md:h-[460px]"
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                allowFullScreen
+                            />
                         </div>
                     </motion.div>
                 </div>

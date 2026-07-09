@@ -19,8 +19,8 @@ export default function Navbar() {
   return (
     <nav className="fixed top-3 left-0 right-0 z-50 px-3">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 rounded-2xl border border-white/22 bg-hero-dark/72 shadow-[0_18px_60px_hsl(215_35%_8%/0.32)] backdrop-blur-2xl supports-[backdrop-filter]:bg-hero-dark/58">
-        <Link to="/#inicio" className="flex h-12 w-36 items-center rounded-xl bg-white/90 px-3 shadow-[inset_0_1px_0_hsl(0_0%_100%/0.35),0_8px_24px_hsl(215_35%_8%/0.12)]">
-          <img src={logo} alt="Mole SPA" className="h-full w-full object-contain object-left drop-shadow-sm" />
+        <Link to="/#inicio" className="flex h-14 w-44 items-center rounded-2xl bg-white/95 px-4 shadow-[inset_0_1px_0_hsl(0_0%_100%/0.5),0_12px_32px_hsl(215_35%_8%/0.16)]">
+          <img src={logo} alt="Mole SPA" className="h-full w-full object-contain object-left drop-shadow-[0_1px_1px_hsl(215_35%_8%/0.25)] contrast-125 saturate-125" />
         </Link>
         <div className="hidden md:flex gap-1">
           {NAV_ITEMS.map((item) => (
