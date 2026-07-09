@@ -34,9 +34,9 @@ export default function AboutSection() {
                     src={fondoMole}
                     alt=""
                     initial={{ opacity: 0, scale: 1.05 }}
-                    whileInView={{ opacity: 0.2, scale: 1 }}
+                    whileInView={{ opacity: 0.36, scale: 1 }}
                     transition={{ duration: 1 }}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover contrast-125 saturate-125"
                     aria-hidden="true"
                 />
 

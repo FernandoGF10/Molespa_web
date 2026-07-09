@@ -6,17 +6,18 @@ import Layout from "@/components/Layout";
 import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ContactSection from "@/components/sections/ContactSection";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import logoClaro from "@/assets/logos/LogoMole_claro.png";
 import heroPiping from "@/assets/obras/obras-1.jpeg";
-import heroObra from "@/assets/obras/Obras (18).jpeg";
+import heroObra from "@/assets/obras/Obras (7).jpeg";
 import obraPiping from "@/assets/obras/Obras (10).jpeg";
 import obraEquipo from "@/assets/obras/Obras (14).jpeg";
 import obraMontaje from "@/assets/obras/Obras (12).jpeg";
 
 const GALLERY = [
-    { src: obraPiping, alt: "Montaje de piping industrial", label: "Piping industrial" },
-    { src: obraEquipo, alt: "Equipo en obra de cañerías", label: "Mantención mecánica" },
-    { src: obraMontaje, alt: "Montaje industrial en terreno", label: "Montaje estructural" },
+    { src: obraPiping, alt: "Montaje de piping industrial", label: "Fabricación y montaje piping" },
+    { src: obraEquipo, alt: "Equipo en obra de cañerías", label: "Fabricación y montaje industrial" },
+    { src: obraMontaje, alt: "Montaje industrial en terreno", label: "Fabricación y montaje piping" },
 ];
 
 const obraModules = import.meta.glob<string>("/src/assets/obras/*.{jpeg,jpg,png}", {
@@ -25,20 +26,25 @@ const obraModules = import.meta.glob<string>("/src/assets/obras/*.{jpeg,jpg,png}
     import: "default",
 });
 
-const workLabels = [
-    "Piping industrial",
-    "Mantencion mecanica",
-    "Montaje estructural",
-    "Trabajo en terreno",
-    "Fabricacion industrial",
-];
+const WORK_CATEGORIES = {
+    "Obras (1).jpeg": "Fabricación y montaje piping",
+    "Obras (4).jpeg": "Fabricación y montaje piping",
+    "Obras (12).jpeg": "Fabricación y montaje piping",
+    "Obras (19).jpeg": "Fabricación y montaje piping",
+    "Obras (20).jpeg": "Fabricación y montaje piping",
+    "Obras (21).jpeg": "Fabricación y montaje piping",
+    "obras-1.jpeg": "Fabricación y montaje piping",
+    "Obras (18).jpeg": "Obras civiles",
+} as const;
+
+const DEFAULT_WORK_CATEGORY = "Fabricación y montaje industrial";
 
 const WORK_GALLERY = Object.entries(obraModules)
     .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, "es", { numeric: true }))
     .map(([path, src], index) => ({
         src,
         alt: `Obra industrial Mole ${index + 1}`,
-        label: workLabels[index % workLabels.length],
+        label: WORK_CATEGORIES[path.split("/").pop() as keyof typeof WORK_CATEGORIES] ?? DEFAULT_WORK_CATEGORY,
         name: path.split("/").pop() ?? `obra-${index + 1}`,
     }));
 
@@ -62,15 +68,16 @@ const HERO_SLIDES = [
     },
     {
         src: heroObra,
-        alt: "Equipo Mole en obra industrial",
+        alt: "Grúa industrial en montaje de estructura metálica",
         mode: "cover",
-        className: "object-cover object-center",
+        className: "object-cover object-[68%_8%]",
     },
 ];
 
 export default function Index() {
     const [activeSlide, setActiveSlide] = useState(0);
     const [activeWork, setActiveWork] = useState(0);
+    const [selectedWork, setSelectedWork] = useState<(typeof SELECTED_GALLERY)[number] | null>(null);
 
     useEffect(() => {
         const interval = window.setInterval(() => {
@@ -87,6 +94,9 @@ export default function Index() {
     };
     const goToNextWork = () => {
         setActiveWork((current) => (current + 1) % SELECTED_GALLERY.length);
+    };
+    const openWorkPreview = (work: (typeof SELECTED_GALLERY)[number]) => {
+        setSelectedWork(work);
     };
 
     return (
@@ -106,8 +116,8 @@ export default function Index() {
                 </AnimatePresence>
 
                 <div className="absolute inset-0 hero-overlay" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(200_80%_50%/0.16),transparent_42%)]" />
-                <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-hero-dark to-transparent" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(200_80%_50%/0.08),transparent_46%)]" />
+                <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-hero-dark/65 to-transparent" />
 
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
                     <motion.p
@@ -146,7 +156,7 @@ export default function Index() {
                         className="flex flex-col sm:flex-row gap-4 justify-center"
                     >
                         <Link
-                            to="/#contacto"
+                            to="/#contacto-proyecto"
                             className="rounded-full border border-white/20 bg-accent/88 px-8 py-3.5 text-base font-heading font-bold text-accent-foreground shadow-[inset_0_1px_0_hsl(0_0%_100%/0.35),0_14px_34px_hsl(200_80%_30%/0.25)] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:brightness-110"
                         >
                             ¡Contáctanos!
@@ -186,11 +196,9 @@ export default function Index() {
                 </motion.a>
             </section>
 
-            <AboutSection />
-
             <ServicesSection />
 
-            <section className="relative overflow-hidden py-24">
+            <section id="obras" className="relative overflow-hidden py-24 scroll-mt-16">
                 <div className="absolute inset-0 bg-muted/40" />
                 <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(120deg,transparent_0,transparent_46%,hsl(200_80%_50%/0.22)_46%,hsl(200_80%_50%/0.22)_47%,transparent_47%),linear-gradient(90deg,hsl(215_28%_20%/0.12)_1px,transparent_1px),linear-gradient(0deg,hsl(215_28%_20%/0.12)_1px,transparent_1px)] [background-size:280px_280px,72px_72px,72px_72px]" />
                 <div className="absolute left-[8%] top-24 h-44 w-44 rounded-full border border-accent/20" />
@@ -243,7 +251,13 @@ export default function Index() {
                                 initial={{ opacity: 0, y: 26 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7 }}
-                                className="group glass-panel absolute left-0 top-28 z-10 w-[76%] overflow-hidden p-1 md:left-0 md:top-20 md:w-[38%]"
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => openWorkPreview(currentWorks[0])}
+                                onKeyDown={(event) => {
+                                    if (event.key === "Enter" || event.key === " ") openWorkPreview(currentWorks[0]);
+                                }}
+                                className="group glass-panel absolute left-0 top-28 z-10 w-[76%] cursor-zoom-in overflow-hidden p-1 md:left-0 md:top-20 md:w-[38%]"
                             >
                                 <img
                                     src={currentWorks[0].src}
@@ -262,7 +276,13 @@ export default function Index() {
                                 initial={{ opacity: 0, y: 28 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7, delay: 0.1 }}
-                                className="glass-panel absolute left-[7%] top-0 z-0 h-[460px] w-[86%] overflow-hidden p-1 shadow-[0_34px_100px_hsl(215_35%_20%/0.24)] md:left-[18%] md:h-[560px] md:w-[62%]"
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => openWorkPreview(currentWorks[1])}
+                                onKeyDown={(event) => {
+                                    if (event.key === "Enter" || event.key === " ") openWorkPreview(currentWorks[1]);
+                                }}
+                                className="glass-panel absolute left-[7%] top-0 z-0 h-[460px] w-[86%] cursor-zoom-in overflow-hidden p-1 shadow-[0_34px_100px_hsl(215_35%_20%/0.24)] md:left-[18%] md:h-[560px] md:w-[62%]"
                             >
                                 <img
                                     src={currentWorks[1].src}
@@ -281,7 +301,13 @@ export default function Index() {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7, delay: 0.2 }}
-                                className="group glass-panel absolute bottom-0 right-0 z-10 w-[82%] overflow-hidden p-1 md:bottom-10 md:w-[36%]"
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => openWorkPreview(currentWorks[2])}
+                                onKeyDown={(event) => {
+                                    if (event.key === "Enter" || event.key === " ") openWorkPreview(currentWorks[2]);
+                                }}
+                                className="group glass-panel absolute bottom-0 right-0 z-10 w-[82%] cursor-zoom-in overflow-hidden p-1 md:bottom-10 md:w-[36%]"
                             >
                                 <img
                                     src={currentWorks[2].src}
@@ -320,7 +346,10 @@ export default function Index() {
                                 <button
                                     key={work.name}
                                     type="button"
-                                    onClick={() => setActiveWork(index)}
+                                    onClick={() => {
+                                        setActiveWork(index);
+                                        openWorkPreview(work);
+                                    }}
                                     className={`group relative aspect-[4/3] overflow-hidden rounded-lg border-2 bg-white/70 shadow-sm transition ${
                                         activeWork === index
                                             ? "border-accent shadow-[0_12px_30px_hsl(200_80%_45%/0.25)]"
@@ -345,7 +374,34 @@ export default function Index() {
                 </div>
             </section>
 
+            <AboutSection />
+
             <ContactSection />
+
+            <Dialog open={selectedWork !== null} onOpenChange={(open) => !open && setSelectedWork(null)}>
+                <DialogContent className="max-h-[92vh] w-[calc(100vw-2rem)] max-w-6xl overflow-hidden border-white/20 bg-hero-dark/88 p-2 shadow-[0_28px_100px_hsl(215_35%_8%/0.55)] backdrop-blur-2xl sm:rounded-2xl md:p-3">
+                    {selectedWork && (
+                        <div className="overflow-hidden rounded-xl border border-white/15 bg-white/5">
+                            <DialogTitle className="sr-only">{selectedWork.alt}</DialogTitle>
+                            <img
+                                src={selectedWork.src}
+                                alt={selectedWork.alt}
+                                className="max-h-[78vh] w-full object-contain"
+                            />
+                            <div className="flex items-center justify-center border-t border-white/10 bg-hero-dark/75 px-4 py-4 text-center">
+                                <div>
+                                    <p className="font-heading text-sm font-bold uppercase tracking-widest text-accent">
+                                        {selectedWork.label}
+                                    </p>
+                                    <p className="mt-1 text-sm text-hero-foreground/65">
+                                        Imagen de obra ejecutada por Mole Servicio Industrial.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </DialogContent>
+            </Dialog>
         </Layout>
     );
 }

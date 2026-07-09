@@ -121,9 +121,9 @@ export default function ServicesSection() {
                     src={fondoMole}
                     alt=""
                     initial={{ opacity: 0, scale: 1.05 }}
-                    whileInView={{ opacity: 0.2, scale: 1 }}
+                    whileInView={{ opacity: 0.36, scale: 1 }}
                     transition={{ duration: 1 }}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover contrast-125 saturate-125"
                     aria-hidden="true"
                 />
 
@@ -186,7 +186,7 @@ export default function ServicesSection() {
                                         className="flex items-center gap-3"
                                     >
                                         <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
-                                        <span className="text-hero-foreground/68">{t}</span>
+                                        <span className="text-hero-foreground/70 text-sm">{t}</span>
                                     </motion.li>
                                 ))}
                             </ul>
